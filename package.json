@@ -19,7 +19,7 @@
     "start": "cd server && npm start",
     "install-all": "npm install && cd server && npm install && cd ../client && npm install"
   },
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^10.0.3"
   }
 }
