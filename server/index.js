@@ -29,7 +29,8 @@ app.use('/api/analytics', require('./routes/analyticsRoutes'));
 // 🔥 Serve React build (ADD THIS)
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.get("/*", (req, res) => {
+// Catch-all route
+app.use((req, res) => {
   res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
 });
 
