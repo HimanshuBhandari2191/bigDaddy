@@ -6,6 +6,9 @@ const path = require('path');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 
+const paymentRoutes = require("./routes/paymentRoutes");
+const razorpay = require("./config/razorpay");
+
 dotenv.config();
 connectDB();
 
@@ -14,6 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/api/payment", paymentRoutes);
 
 
 app.use('/api/auth', authRoutes);

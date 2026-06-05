@@ -1,40 +1,64 @@
 const Order = require('../models/Order');
 const sendEmail = require('../utils/sendEmail');
+const Product = require('../models/Product');
 
 const addOrderItems = async (req, res) => {
   try {
     const { items, totalAmount, address, paymentId } = req.body;
-    if (items && items.length === 0) {
+
+    if (!items || items.length === 0) {
       return res.status(400).json({ message: 'No order items' });
-    } else {
-      const order = new Order({
-        userId: req.user._id,
-        items,
-        totalAmount,
-        address,
-        paymentId
-      });
-      const createdOrder = await order.save();
-
-      // Send Order Confirmation Email
-      const message = `
-        <h2>Order Confirmation</h2>
-        <p>Hello ${req.user.name},</p>
-        <p>Your order has been successfully placed! Order ID: <strong>${createdOrder._id}</strong></p>
-        <p>Total Amount Paid: $${totalAmount.toFixed(2)}</p>
-        <p>It will be shipped to: ${address.street}, ${address.city}</p>
-        <p>Thank you for shopping with ShopNest!</p>
-      `;
-
-      await sendEmail({
-        email: req.user.email,
-        subject: 'ShopNest - Order Confirmation',
-        message
-      });
-
-      res.status(201).json(createdOrder);
     }
+
+    // 🔥 STEP 1: CHECK & REDUCE STOCK
+    for (const item of items) {
+      const product = await Product.findById(item.productId);
+
+      if (!product) {
+        return res.status(404).json({ message: "Product not found" });
+      }
+
+      if (product.stock < item.qty) {
+        return res.status(400).json({
+          message: `${product.name} is out of stock`
+        });
+      }
+
+      product.stock -= item.qty;
+      await product.save();
+    }
+
+    // 🔥 STEP 2: CREATE ORDER
+    const order = new Order({
+      userId: req.user._id,
+      items,
+      totalAmount,
+      address,
+      paymentId
+    });
+
+    const createdOrder = await order.save();
+
+    // 🔥 STEP 3: EMAIL
+    const message = `
+      <h2>Order Confirmation</h2>
+      <p>Hello ${req.user.name},</p>
+      <p>Your order ID: <strong>${createdOrder._id}</strong></p>
+      <p>Total Amount: ₹${totalAmount}</p>
+      <p>Shipping to: ${address.street}, ${address.city}</p>
+      <p>Thank you for shopping with ShopNest!</p>
+    `;
+
+    await sendEmail({
+      email: req.user.email,
+      subject: 'Order Confirmation',
+      message
+    });
+
+    res.status(201).json(createdOrder);
+
   } catch (error) {
+    console.error("ORDER ERROR:", error);
     res.status(500).json({ message: error.message });
   }
 };

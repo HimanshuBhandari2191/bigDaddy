@@ -5,6 +5,7 @@ import { removeFromCart, addToCart } from '../redux/cartSlice';
 import '../styles/cart.css';
 
 const Cart = () => {
+  
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Cart = () => {
   };
 
   const handleUpdateQty = (item, qty) => {
+    if (qty > item.stock) return; // prevent qty from exceeding stock
     if (qty > 0) {
       dispatch(addToCart({ ...item, qty }));
     }
@@ -36,9 +38,9 @@ const Cart = () => {
                   <h4>{item.name}</h4>
                   <p>₹{item.price}</p>
                   <div className="qty-controls">
-                    <button onClick={() => handleUpdateQty(item, item.qty - 1)}>-</button>
+                    <button onClick={() => handleUpdateQty(item, item.qty - 1)}  disabled={item.qty <= 1}>-</button>
                     <span>{item.qty}</span>
-                    <button onClick={() => handleUpdateQty(item, item.qty + 1)}>+</button>
+                    <button onClick={() => handleUpdateQty(item, item.qty + 1)}  disabled={item.qty >= item.stock}>+</button>
                   </div>
                   <button onClick={() => handleRemove(item.productId)} className="btn-remove">Remove</button>
                 </div>

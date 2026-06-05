@@ -24,56 +24,72 @@ const Checkout = () => {
   }, []);
 
   const totalPrice = (Array.isArray(cartItems) ? cartItems : []).reduce((acc, item) => acc + item.price * item.qty, 0);
-
+  console.log("Total Price:", totalPrice);
   const handlePayment = async () => {
-    try {
-      setLoading(true);
-      console.log('Starting payment process...');
-      
-      // Since Razorpay keys are not configured, directly use bypass payment
-      console.log('Using bypass payment mode');
-      await bypassPayment();
-    } catch (error) {
-      console.error('Payment error:', error);
-      setLoading(false);
+  const res = await fetch("/api/payment/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${user.token}`,
+    },
+    body: JSON.stringify({
+      amount: totalPrice,
+      items: cartItems,
+      address,
+    }),
+  });
+
+  const order = await res.json();
+
+  const options = {
+    key: "rzp_test_SxZc3gTVYcFWw3",
+    amount: order.amount,
+    currency: "INR",
+    order_id: order.id,
+
+    handler: async function (response) {
+  try {
+    // ✅ Save order (this will reduce stock in backend)
+    const orderRes = await fetch("/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+      body: JSON.stringify({
+        items: cartItems,
+        totalAmount: totalPrice,
+        address,
+        paymentId: response.razorpay_payment_id,
+      }),
+    });
+
+    console.log("Order API status:", orderRes.status);
+    const data = await orderRes.json();
+    console.log("Order API response:", data);
+
+    if (!orderRes.ok) {
+      alert(data.message || "Order failed");
+      return;
     }
+
+    // ✅ Clear cart
+    dispatch(clearCart());
+
+    // ✅ Redirect
+    navigate("/ordersuccess");
+
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong");
+  }
+},
   };
 
-  const bypassPayment = async () => {
-    try {
-      setLoading(true);
-      const saveOrderRes = await fetch('/api/orders', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${user.token}`
-        },
-        body: JSON.stringify({
-          items: cartItems,
-          totalAmount: totalPrice,
-          address,
-          paymentId: 'bypass_txn_' + Date.now()
-        })
-      });
-      
-      if (!saveOrderRes.ok) {
-        const errorData = await saveOrderRes.json();
-        console.error('Order creation failed:', errorData);
-        alert('Order creation failed: ' + (errorData.message || 'Unknown error'));
-        setLoading(false);
-        return;
-      }
+  const rzp = new window.Razorpay(options);
+  rzp.open();
+};
 
-      const orderData = await saveOrderRes.json();
-      console.log('Order created:', orderData);
-      dispatch(clearCart());
-      navigate('/ordersuccess');
-    } catch (err) {
-      console.error('Bypass payment error:', err);
-      alert('Order creation failed: ' + err.message);
-      setLoading(false);
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

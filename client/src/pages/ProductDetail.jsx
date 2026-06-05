@@ -213,12 +213,21 @@ const ProductDetail = () => {
   }, [id]);
 
   const handleAddToCart = () => {
+
+    if (!product) return;
+
+  if (product.stock <= 0) {
+    alert("Out of stock");
+    return;
+  }
+  
     if (product) {
       dispatch(addToCart({
         productId: product._id,
         name: product.name,
         price: product.price,
         imageUrl: product.imageUrl,
+        stock: product.stock, 
         qty: 1
       }));
       alert('Successfully added to your cart!');
