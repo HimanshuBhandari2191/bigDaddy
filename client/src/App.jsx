@@ -20,7 +20,7 @@ import EditProduct from "./admin/EditProduct";
 import AdminOrders from "./admin/AdminOrders";
 import AdminUsers from "./admin/AdminUsers";
 import Shop from "./pages/Shop";
-
+import OrderDetail from "./pages/OrderDetail";
 function App() {
   return (
     <Router>
@@ -44,6 +44,7 @@ function App() {
         <Route path="/admin/edit-product/:id" element={<EditProduct />} />
         <Route path="/admin/orders" element={<AdminOrders />} />
         <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/order/:id" element={<OrderDetail />} />
       </Routes>
       <Footer />
     </Router>

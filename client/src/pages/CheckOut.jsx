@@ -12,7 +12,7 @@ const Checkout = () => {
   const [loading, setLoading] = useState(false);
 
   const [address, setAddress] = useState({
-    fullName: '', street: '', city: '', postalCode: '', country: ''
+    fullName: '', street: '', city: '', postalCode: '', country: '', phone: '' 
   });
 
   useEffect(() => {
@@ -98,8 +98,13 @@ const Checkout = () => {
       navigate('/login');
       return;
     }
-    if (!address.fullName || !address.street || !address.city || !address.postalCode || !address.country) {
+    if (!address.fullName || !address.street || !address.city || !address.postalCode || !address.country ||
+  !address.phone) {
       alert("Please fill all address fields");
+      return;
+    }
+    if (!/^[6-9]\d{9}$/.test(address.phone)) {
+      alert("Invalid phone number");
       return;
     }
     handlePayment();
@@ -116,6 +121,7 @@ const Checkout = () => {
           <input type="text" placeholder="City" required value={address.city} onChange={(e) => setAddress({...address, city: e.target.value})} />
           <input type="text" placeholder="Postal Code" required value={address.postalCode} onChange={(e) => setAddress({...address, postalCode: e.target.value})} />
           <input type="text" placeholder="Country" required value={address.country} onChange={(e) => setAddress({...address, country: e.target.value})} />
+          <input type="text" placeholder="Phone Number" required value={address.phone} onChange={(e) => setAddress({...address, phone: e.target.value})} />
           <div className="checkout-summary">
             <h4>Total to Pay: ₹{totalPrice.toFixed(2)}</h4>
             <button type="submit" className="btn" disabled={loading}>{loading ? 'Processing...' : 'Pay Now'}</button>

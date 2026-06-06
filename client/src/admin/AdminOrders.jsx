@@ -1,9 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const AdminOrders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -43,9 +46,9 @@ const AdminOrders = () => {
           </thead>
           <tbody>
             {orders.map(order => (
-              <tr key={order._id} style={rowStyle}>
+              <tr key={order._id} style={rowStyle} onClick={() => navigate(`/order/${order._id}`)} hover={{ cursor: 'pointer', background: 'rgba(252, 251, 251, 0.05)' }}>
                 <td style={tdStyle}>{order._id.substring(0, 8)}...</td>
-                <td style={tdStyle}>{order.user?.name || 'Deleted User'}</td>
+                <td style={tdStyle}>{order.userId?.name || 'Deleted User'}</td>
                 <td style={tdStyle}>₹{order.totalAmount.toFixed(2)}</td>
                 <td style={tdStyle}>{new Date(order.createdAt).toLocaleDateString()}</td>
                 <td style={tdStyle}>

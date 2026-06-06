@@ -15,14 +15,11 @@ const orderSchema = new mongoose.Schema({
     street: { type: String, required: true },
     city: { type: String, required: true },
     postalCode: { type: String, required: true },
-    country: { type: String, required: true }
-  },
-  phone: {
-    type: String
-  },
-  phoneVerified: {
-    type: Boolean,
-    default: false
+    country: { type: String, required: true },
+    phone: {
+      type: String,
+      required: true
+    }
   },
   paymentId: { type: String },
   status: { type: String, enum: ['pending', 'shipped', 'delivered'], default: 'pending' },
