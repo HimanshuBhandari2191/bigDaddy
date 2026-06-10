@@ -1,10 +1,4 @@
-Here’s your **complete, clean, production-ready README.md** — structured for GitHub + resume impact. Just copy and paste.
 
----
-
-# 📄 ✅ FINAL README.md
-
-```md
 # 🛒 BigDaddy – Full Stack E-commerce Platform (MERN)
 
 A full-stack E-commerce web application built using the MERN stack (MongoDB, Express, React, Node.js) with OTP-based authentication, secure APIs, and real-time product & order management.
