@@ -16,6 +16,7 @@ A full-stack E-commerce web application built using the MERN stack (MongoDB, Exp
 ### 🔐 Authentication
 - Email-based OTP verification
 - User registration & login
+- role based login (admin/user)
 - JWT-based authentication
 - Secure password handling
 
