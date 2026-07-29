@@ -6,7 +6,7 @@ const Disclaimer = () => {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '40px 20px',
-    color: '#a1a1aa',
+    color: '#a3a3a3',
     lineHeight: '1.8',
     minHeight: '80vh'
   }
@@ -16,7 +16,7 @@ const Disclaimer = () => {
   }
 
   const headingStyle = {
-    color: '#f97316',
+    color: '#e5e5e5',
     fontSize: '1.5rem',
     fontWeight: '600',
     marginBottom: '15px',
@@ -24,7 +24,7 @@ const Disclaimer = () => {
   }
 
   const subHeadingStyle = {
-    color: '#f97316',
+    color: '#e5e5e5',
     fontSize: '1.1rem',
     fontWeight: '600',
     marginTop: '20px',
@@ -46,10 +46,10 @@ const Disclaimer = () => {
   }
 
   return (
-    <div style={{ background: '#09090b', minHeight: '100vh', paddingTop: '20px', paddingBottom: '40px' }}>
+    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '20px', paddingBottom: '40px' }}>
       <div style={containerStyle}>
-        <h1 style={{ color: '#f97316', fontSize: '2.5rem', marginBottom: '10px' }}>Disclaimer</h1>
-        <p style={{ color: '#6b6b7a', marginBottom: '40px', fontSize: '0.9rem' }}>Last Updated: June 2026</p>
+        <h1 style={{ color: '#e5e5e5', fontSize: '2.5rem', marginBottom: '10px' }}>Disclaimer</h1>
+        <p style={{ color: '#8a8a8a', marginBottom: '40px', fontSize: '0.9rem' }}>Last Updated: June 2026</p>
 
         {/* General Disclaimer */}
         <div style={sectionStyle}>
@@ -203,14 +203,14 @@ const Disclaimer = () => {
         {/* Footer Navigation */}
         <div style={{ marginTop: '50px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
           <p style={{ marginBottom: '20px' }}>
-            <Link to="/" style={{ color: '#f97316', textDecoration: 'none', fontWeight: '600' }}>
+            <Link to="/" style={{ color: '#e5e5e5', textDecoration: 'none', fontWeight: '600' }}>
               ← Back to Home
             </Link>
           </p>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <Link to="/about" style={{ color: '#a1a1aa', textDecoration: 'none', fontSize: '0.9rem' }}>About Us</Link>
-            <Link to="/return" style={{ color: '#a1a1aa', textDecoration: 'none', fontSize: '0.9rem' }}>Return Policy</Link>
-            <Link to="/disclaimer" style={{ color: '#f97316', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '600' }}>Disclaimer</Link>
+            <Link to="/about" style={{ color: '#a3a3a3', textDecoration: 'none', fontSize: '0.9rem' }}>About Us</Link>
+            <Link to="/return" style={{ color: '#a3a3a3', textDecoration: 'none', fontSize: '0.9rem' }}>Return Policy</Link>
+            <Link to="/disclaimer" style={{ color: '#e5e5e5', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '600' }}>Disclaimer</Link>
           </div>
         </div>
       </div>

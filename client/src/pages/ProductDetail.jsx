@@ -43,14 +43,14 @@
 
 //   if (loading) {
 //     return (
-//       <div style={{ textAlign: "center", margin: "100px", color: "#f97316" }}>
+//       <div style={{ textAlign: "center", margin: "100px", color: "#e5e5e5" }}>
 //         loading Products...
 //       </div>
 //     );
 //   }
 //   if (!product) {
 //     return (
-//       <div style={{ textAlign: "center", margin: "100px", color: "#ef4444" }}>
+//       <div style={{ textAlign: "center", margin: "100px", color: "#a3a3a3" }}>
 //         Product not found
 //       </div>
 //     );
@@ -64,18 +64,18 @@
 //       {/* Breadcrumb Navigation */}
 //       <div
 //         style={{
-//           color: "#a1a1aa",
+//           color: "#a3a3a3",
 //           marginBottom: "20px",
 //           fontSize: "0.95rem",
 //         }}
 //       >
-//         <Link to="/" style={{ color: "#f97316" }}>
+//         <Link to="/" style={{ color: "#e5e5e5" }}>
 //           Home
 //         </Link>
 
 //         {" / "}
 
-//         <Link to="/shop" style={{ color: "#f97316" }}>
+//         <Link to="/shop" style={{ color: "#e5e5e5" }}>
 //           Shop
 //         </Link>
 
@@ -132,7 +132,7 @@
 
 //             <p
 //               style={{
-//                 color: "#a1a1aa",
+//                 color: "#a3a3a3",
 //                 lineHeight: "1.8",
 //               }}
 //             >
@@ -164,7 +164,7 @@
 //           <p
 //             style={{
 //               marginTop: "20px",
-//               color: product.stock > 0 ? "#10b981" : "#ef4444",
+//               color: product.stock > 0 ? "#f5f5f5" : "#a3a3a3",
 //               fontWeight: "600",
 //             }}
 //           >
@@ -234,15 +234,15 @@ const ProductDetail = () => {
     }
   };
 
-  if (loading) return <div style={{ textAlign: 'center', margin: '100px', color: '#f97316' }}>Loading Product...</div>;
-  if (!product) return <div style={{ textAlign: 'center', margin: '100px', color: '#ef4444' }}>Product Not Found</div>;
+  if (loading) return <div style={{ textAlign: 'center', margin: '100px', color: '#e5e5e5' }}>Loading Product...</div>;
+  if (!product) return <div style={{ textAlign: 'center', margin: '100px', color: '#f5f5f5' }}>Product Not Found</div>;
 
   return (
     <div className="product-detail-wrapper" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       
       {/* Breadcrumb Navigation */}
-      <div style={{ color: '#a1a1aa', marginBottom: '20px', fontSize: '0.95rem' }}>
-        <Link to="/" style={{ color: '#f97316' }}>Home</Link> / <Link to="/shop" style={{ color: '#f97316' }}>Shop</Link> / {product.category} / <span style={{ color: '#fff' }}>{product.name}</span>
+      <div style={{ color: '#a3a3a3', marginBottom: '20px', fontSize: '0.95rem' }}>
+        <Link to="/" style={{ color: '#e5e5e5' }}>Home</Link> / <Link to="/shop" style={{ color: '#e5e5e5' }}>Shop</Link> / {product.category} / <span style={{ color: '#fff' }}>{product.name}</span>
       </div>
 
       <div className="product-detail">
@@ -261,7 +261,7 @@ const ProductDetail = () => {
           {/* Description */}
           <div style={{ marginBottom: '25px' }}>
             <h4 style={{ color: '#fff', marginBottom: '10px' }}>Product Description</h4>
-            <p style={{ color: '#a1a1aa', lineHeight: '1.8' }}>{product.description}</p>
+            <p style={{ color: '#a3a3a3', lineHeight: '1.8' }}>{product.description}</p>
           </div>
 
           {/* Cart & Stock Actions */}
@@ -271,7 +271,7 @@ const ProductDetail = () => {
             </button>
           </div>
           
-          <p style={{ marginTop: '20px', color: product.stock > 0 ? '#10b981' : '#ef4444', fontWeight: '600' }}>
+          <p style={{ marginTop: '20px', color: product.stock > 0 ? '#f5f5f5' : '#6b6b6b', fontWeight: '600' }}>
             {product.stock > 0 ? `● In Stock (${product.stock} units available)` : `● Temporarily Out of Stock`}
           </p>
 

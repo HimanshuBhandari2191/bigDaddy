@@ -93,7 +93,7 @@ const Register = () => {
         
         {step === 1 && (
           <form onSubmit={handleSendOtp}>
-            <p style={{ color: '#a1a1aa', marginBottom: '15px' }}>Enter your email to receive a secure login OTP.</p>
+            <p style={{ color: '#a3a3a3', marginBottom: '15px' }}>Enter your email to receive a secure login OTP.</p>
             <input 
               type="email" 
               placeholder="Your Email Address" 
@@ -109,7 +109,7 @@ const Register = () => {
 
         {step === 2 && (
           <form onSubmit={handleVerifyOtp}>
-            <p style={{ color: '#a1a1aa', marginBottom: '15px' }}>An OTP was sent to <strong>{email}</strong></p>
+            <p style={{ color: '#a3a3a3', marginBottom: '15px' }}>An OTP was sent to <strong>{email}</strong></p>
             <input 
               type="text" 
               placeholder="Enter 6-Digit OTP" 
@@ -120,7 +120,7 @@ const Register = () => {
             <button type="submit" disabled={loading} className="btn">
               {loading ? 'Verifying...' : 'Verify OTP'}
             </button>
-            <button type="button" onClick={() => setStep(1)} style={{ background: 'none', border: 'none', color: '#f97316', marginTop: '10px', cursor: 'pointer' }}>
+            <button type="button" onClick={() => setStep(1)} style={{ background: 'none', border: 'none', color: '#e5e5e5', marginTop: '10px', cursor: 'pointer' }}>
               ← Change Email
             </button>
           </form>
@@ -128,7 +128,7 @@ const Register = () => {
 
         {step === 3 && (
           <form onSubmit={handleCompleteProfile}>
-            <p style={{ color: '#a1a1aa', marginBottom: '15px' }}>Email verified! Setup your security profile configurations.</p>
+            <p style={{ color: '#a3a3a3', marginBottom: '15px' }}>Email verified! Setup your security profile configurations.</p>
             <input 
               type="text" 
               placeholder="Full Name" 
@@ -150,7 +150,7 @@ const Register = () => {
         )}
 
         <p style={{ marginTop: '20px', fontSize: '0.9rem' }}>
-          Already have an account? <Link to="/login" style={{ color: '#f97316' }}>Login here</Link>
+          Already have an account? <Link to="/login" style={{ color: '#e5e5e5' }}>Login here</Link>
         </p>
       </div>
     </div>

@@ -34,9 +34,9 @@ const About = () => {
           height: "180px",
           borderRadius: "50%",
           objectFit: "cover",
-          border: "4px solid #f97316",
+          border: "4px solid #e5e5e5",
           marginBottom: "20px",
-          boxShadow: "0 4px 20px rgba(249, 115, 22, 0.4)",
+          boxShadow: "0 4px 20px rgba(255, 255, 255, 0.4)",
         }}
       />
 
@@ -53,7 +53,7 @@ const About = () => {
       <h3
         style={{
           fontSize: "1.5rem",
-          color: "#f97316",
+          color: "#e5e5e5",
           marginBottom: "15px",
         }}
       >
@@ -62,7 +62,7 @@ const About = () => {
     
    <p
   style={{
-    color: '#a1a1aa',
+    color: '#a3a3a3',
     fontSize: '1.2rem',
     lineHeight: '1.8',
     maxWidth: '600px',
@@ -95,12 +95,7 @@ const About = () => {
   href=""
   target="_blank"
   rel="noreferrer"
-  style={{
-    ...socialBtnStyle,
-    background: 'rgba(16, 185, 129, 0.2)',
-    borderColor: '#10b981',
-    color: '#10b981'
-  }}
+  style={socialBtnStyle}
 >
   💬 WhatsApp
 </a>

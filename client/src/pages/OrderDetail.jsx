@@ -28,7 +28,7 @@ const OrderDetail = () => {
   }, [id, user]);
 
   if (!order) {
-    return <div style={{ color: "#f97316", textAlign: "center", marginTop: "100px" }}>Loading Order...</div>;
+    return <div style={{ color: "#e5e5e5", textAlign: "center", marginTop: "100px" }}>Loading Order...</div>;
   }
 
   return (
@@ -37,7 +37,7 @@ const OrderDetail = () => {
       {/* ORDER CARD */}
       <div style={{ background: "#18181b", padding: "25px", borderRadius: "10px" }}>
         
-        <h2 style={{ color: "#f97316" }}>
+        <h2 style={{ color: "#e5e5e5" }}>
           Order ID: {order._id}
         </h2>
 

@@ -2,7 +2,7 @@
 
 .home-container {
     width: 100%;
-    background-color: #09090b;
+    background-color: #0a0a0a;
     overflow-x: hidden;
 }
 
@@ -35,7 +35,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
     pointer-events: none;
     z-index: 1;
 }
@@ -72,7 +72,7 @@
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    background: linear-gradient(to right, #ffffff, #a1a1aa);
+    background: linear-gradient(to right, #ffffff, #a3a3a3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -96,7 +96,7 @@
     text-align: center;
     padding: 40px;
     font-size: 1.1rem;
-    color: #a1a1aa;
+    color: #a3a3a3;
 }
 
 /* Animations */

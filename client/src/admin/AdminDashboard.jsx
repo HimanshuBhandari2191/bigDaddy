@@ -50,42 +50,42 @@ const AdminDashboard = () => {
   const numberStyle = {
     fontSize: '2.5rem',
     fontWeight: '700',
-    color: '#f97316'
+    color: '#e5e5e5'
   };
 
   return (
     <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '5px' }}>
-        <img src="/Logo.png" alt="Logo" style={{ height: '40px', width: '40px', borderRadius: '8px', objectFit: 'cover', filter: 'drop-shadow(0 0px 10px rgba(249, 115, 22, 0.3))' }} />
+        <img src="/Logo.png" alt="Logo" style={{ height: '40px', width: '40px', borderRadius: '8px', objectFit: 'cover', filter: 'drop-shadow(0 0px 10px rgba(255, 255, 255, 0.3))' }} />
         <h2 style={{ margin: 0 }}>Admin Dashboard</h2>
       </div>
-      <p style={{ color: '#a1a1aa', marginBottom: '30px', fontSize: '1.1rem' }}>Welcome back, <span style={{color: '#fff'}}>{user?.name}</span></p>
+      <p style={{ color: '#a3a3a3', marginBottom: '30px', fontSize: '1.1rem' }}>Welcome back, <span style={{color: '#fff'}}>{user?.name}</span></p>
       
       {stats ? (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
           <div style={cardStyle}>
-            <h4 style={{ color: '#a1a1aa', fontSize: '1rem' }}>Total Orders</h4>
+            <h4 style={{ color: '#a3a3a3', fontSize: '1rem' }}>Total Orders</h4>
             <div style={numberStyle}>{stats.totalOrders}</div>
           </div>
           <div style={cardStyle}>
-            <h4 style={{ color: '#a1a1aa', fontSize: '1rem' }}>Total Products</h4>
+            <h4 style={{ color: '#a3a3a3', fontSize: '1rem' }}>Total Products</h4>
             <div style={numberStyle}>{stats.totalProducts}</div>
           </div>
           <div style={cardStyle}>
-            <h4 style={{ color: '#a1a1aa', fontSize: '1rem' }}>Total Users</h4>
+            <h4 style={{ color: '#a3a3a3', fontSize: '1rem' }}>Total Users</h4>
             <div style={numberStyle}>{stats.totalUsers}</div>
           </div>
           <div style={cardStyle}>
-            <h4 style={{ color: '#a1a1aa', fontSize: '1rem' }}>Total Revenue</h4>
+            <h4 style={{ color: '#a3a3a3', fontSize: '1rem' }}>Total Revenue</h4>
             <div style={numberStyle}>₹{Number(stats.totalRevenue || 0).toFixed(2)}</div>
           </div>
         </div>
       ) : (
-        <div style={{ textAlign: 'center', margin: '50px 0', color: '#f97316' }}>Loading metrics...</div>
+        <div style={{ textAlign: 'center', margin: '50px 0', color: '#e5e5e5' }}>Loading metrics...</div>
       )}
 
       <div style={{ marginTop: '40px', padding: '30px', background: '#18181b', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-        <h3 style={{ marginBottom: '25px', color: '#f97316' }}>Administrative Controls</h3>
+        <h3 style={{ marginBottom: '25px', color: '#e5e5e5' }}>Administrative Controls</h3>
         <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
           <button className="btn" onClick={() => navigate('/admin/add-product')}>+ Add Product</button>
           <button className="btn" onClick={() => navigate('/admin/products')} style={{ background: '#3f3f46' }}>📦 Manage Products</button>

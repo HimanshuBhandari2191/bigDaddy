@@ -27,7 +27,7 @@
   left: -50%;
   width: 200%;
   height: 4px;
-  background: linear-gradient(90deg, transparent, #f97316, transparent);
+  background: linear-gradient(90deg, transparent, #e5e5e5, transparent);
   animation: shimmer 3s infinite linear;
 }
 
@@ -45,7 +45,7 @@
 
 .auth-form input {
   padding: 15px;
-  background: #09090b;
+  background: #0a0a0a;
   border: 1px solid #27272a;
   border-radius: 8px;
   font-size: 15px;
@@ -55,18 +55,18 @@
 }
 
 .auth-form input:focus {
-  border-color: #f97316;
-  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+  border-color: #e5e5e5;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .auth-form p {
   text-align: center;
   margin-top: 15px;
-  color: #a1a1aa;
+  color: #a3a3a3;
 }
 
 .auth-form a {
-  color: #f97316;
+  color: #e5e5e5;
   font-weight: 600;
 }
 

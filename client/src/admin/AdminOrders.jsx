@@ -32,7 +32,7 @@ const AdminOrders = () => {
 
   return (
     <div style={containerStyle}>
-      <h2 style={{ color: '#f97316', marginBottom: '20px' }}>Manage Orders</h2>
+      <h2 style={{ color: '#e5e5e5', marginBottom: '20px' }}>Manage Orders</h2>
       <div style={{ overflowX: 'auto' }}>
         <table style={tableStyle}>
           <thead>
@@ -55,7 +55,7 @@ const AdminOrders = () => {
                   <select 
                     value={order.status} 
                     onChange={(e) => updateStatus(order._id, e.target.value.toLowerCase())}
-                    style={{ background: '#09090b', color: '#fff', padding: '6px', border: '1px solid #27272a', borderRadius: '4px', outline: 'none' }}
+                    style={{ background: '#0a0a0a', color: '#fff', padding: '6px', border: '1px solid #27272a', borderRadius: '4px', outline: 'none' }}
                   >
                     <option value="pending">Pending</option>
                     <option value="shipped">Shipped</option>
@@ -71,10 +71,10 @@ const AdminOrders = () => {
   );
 };
 
-const containerStyle = { maxWidth: '1200px', margin: '40px auto', padding: '30px', background: '#18181b', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', color: '#fafafa' };
+const containerStyle = { maxWidth: '1200px', margin: '40px auto', padding: '30px', background: '#18181b', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', color: '#f5f5f5' };
 const tableStyle = { width: '100%', borderCollapse: 'collapse' };
 const rowStyle = { borderBottom: '1px solid rgba(255,255,255,0.1)' };
-const thStyle = { padding: '15px', textAlign: 'left', color: '#a1a1aa', fontSize: '0.9rem' };
+const thStyle = { padding: '15px', textAlign: 'left', color: '#a3a3a3', fontSize: '0.9rem' };
 const tdStyle = { padding: '15px', textAlign: 'left' };
 
 export default AdminOrders;

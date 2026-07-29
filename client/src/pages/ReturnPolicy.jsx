@@ -6,7 +6,7 @@ const ReturnPolicy = () => {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '40px 20px',
-    color: '#a1a1aa',
+    color: '#a3a3a3',
     lineHeight: '1.8',
     minHeight: '80vh'
   }
@@ -16,7 +16,7 @@ const ReturnPolicy = () => {
   }
 
   const headingStyle = {
-    color: '#f97316',
+    color: '#e5e5e5',
     fontSize: '1.5rem',
     fontWeight: '600',
     marginBottom: '15px',
@@ -24,7 +24,7 @@ const ReturnPolicy = () => {
   }
 
   const subHeadingStyle = {
-    color: '#f97316',
+    color: '#e5e5e5',
     fontSize: '1.1rem',
     fontWeight: '600',
     marginTop: '20px',
@@ -46,8 +46,8 @@ const ReturnPolicy = () => {
   }
 
   const boxStyle = {
-    background: 'rgba(249, 115, 22, 0.1)',
-    border: '1px solid rgba(249, 115, 22, 0.3)',
+    background: 'rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.3)',
     borderRadius: '8px',
     padding: '20px',
     marginBottom: '20px'
@@ -60,12 +60,12 @@ const ReturnPolicy = () => {
   }
 
   const thStyle = {
-    background: 'rgba(249, 115, 22, 0.2)',
-    color: '#f97316',
+    background: 'rgba(255, 255, 255, 0.2)',
+    color: '#e5e5e5',
     padding: '12px',
     textAlign: 'left',
     fontWeight: '600',
-    borderBottom: '1px solid rgba(249, 115, 22, 0.3)'
+    borderBottom: '1px solid rgba(255, 255, 255, 0.3)'
   }
 
   const tdStyle = {
@@ -74,20 +74,20 @@ const ReturnPolicy = () => {
   }
 
   return (
-    <div style={{ background: '#09090b', minHeight: '100vh', paddingTop: '20px', paddingBottom: '40px' }}>
+    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '20px', paddingBottom: '40px' }}>
       <div style={containerStyle}>
-        <h1 style={{ color: '#f97316', fontSize: '2.5rem', marginBottom: '10px' }}>Return Policy</h1>
-        <p style={{ color: '#6b6b7a', marginBottom: '40px', fontSize: '0.9rem' }}>Last Updated: January 2025</p>
+        <h1 style={{ color: '#e5e5e5', fontSize: '2.5rem', marginBottom: '10px' }}>Return Policy</h1>
+        <p style={{ color: '#8a8a8a', marginBottom: '40px', fontSize: '0.9rem' }}>Last Updated: January 2025</p>
 
         {/* Quick Summary */}
         <div style={boxStyle}>
-          <h2 style={{ color: '#f97316', fontSize: '1.1rem', marginTop: 0 }}>Quick Summary</h2>
+          <h2 style={{ color: '#e5e5e5', fontSize: '1.1rem', marginTop: 0 }}>Quick Summary</h2>
           <p style={{ marginBottom: '10px' }}>
-            We offer a <strong style={{ color: '#f97316' }}>30-day return window</strong> for most items in their original condition. 
+            We offer a <strong style={{ color: '#e5e5e5' }}>30-day return window</strong> for most items in their original condition. 
             Most returns are processed within 5-7 business days after we receive them.
           </p>
           <p>
-            <strong style={{ color: '#f97316' }}>Return shipping:</strong> Free for defective items; paid by customer otherwise 
+            <strong style={{ color: '#e5e5e5' }}>Return shipping:</strong> Free for defective items; paid by customer otherwise 
             (unless the return is due to our error or a damaged/defective product).
           </p>
         </div>
@@ -96,7 +96,7 @@ const ReturnPolicy = () => {
         <div style={sectionStyle}>
           <h2 style={headingStyle}>1. Return Window</h2>
           <p style={paragraphStyle}>
-            You have <strong style={{ color: '#f97316' }}>30 calendar days</strong> from the date of purchase to return eligible items 
+            You have <strong style={{ color: '#e5e5e5' }}>30 calendar days</strong> from the date of purchase to return eligible items 
             to Big Daddy Tattoos. The return window begins on the date your order is delivered, not the purchase date.
           </p>
           <p style={paragraphStyle}>
@@ -330,14 +330,14 @@ const ReturnPolicy = () => {
         {/* Footer Navigation */}
         <div style={{ marginTop: '50px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
           <p style={{ marginBottom: '20px' }}>
-            <Link to="/" style={{ color: '#f97316', textDecoration: 'none', fontWeight: '600' }}>
+            <Link to="/" style={{ color: '#e5e5e5', textDecoration: 'none', fontWeight: '600' }}>
               ← Back to Home
             </Link>
           </p>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <Link to="/about" style={{ color: '#a1a1aa', textDecoration: 'none', fontSize: '0.9rem' }}>About Us</Link>
-            <Link to="/return" style={{ color: '#f97316', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '600' }}>Return Policy</Link>
-            <Link to="/disclaimer" style={{ color: '#a1a1aa', textDecoration: 'none', fontSize: '0.9rem' }}>Disclaimer</Link>
+            <Link to="/about" style={{ color: '#a3a3a3', textDecoration: 'none', fontSize: '0.9rem' }}>About Us</Link>
+            <Link to="/return" style={{ color: '#e5e5e5', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '600' }}>Return Policy</Link>
+            <Link to="/disclaimer" style={{ color: '#a3a3a3', textDecoration: 'none', fontSize: '0.9rem' }}>Disclaimer</Link>
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@ const AdminProducts = () => {
   return (
     <div style={containerStyle}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <h2 style={{ color: '#f97316' }}>Manage Products</h2>
+        <h2 style={{ color: '#e5e5e5' }}>Manage Products</h2>
         <Link to="/admin/add-product" className="btn">+ Add Product</Link>
       </div>
 
@@ -67,12 +67,12 @@ const AdminProducts = () => {
   );
 };
 
-const containerStyle = { maxWidth: '1200px', margin: '40px auto', padding: '30px', background: '#18181b', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', color: '#fafafa' };
+const containerStyle = { maxWidth: '1200px', margin: '40px auto', padding: '30px', background: '#18181b', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', color: '#f5f5f5' };
 const tableStyle = { width: '100%', borderCollapse: 'collapse' };
 const rowStyle = { borderBottom: '1px solid rgba(255,255,255,0.1)' };
-const thStyle = { padding: '15px', textAlign: 'left', color: '#a1a1aa', fontSize: '0.9rem' };
+const thStyle = { padding: '15px', textAlign: 'left', color: '#a3a3a3', fontSize: '0.9rem' };
 const tdStyle = { padding: '15px', textAlign: 'left' };
-const editBtn = { background: '#3b82f6', color: '#fff', padding: '6px 12px', borderRadius: '4px', marginRight: '10px' };
-const deleteBtn = { background: '#ef4444', color: '#fff', padding: '6px 12px', borderRadius: '4px', border: 'none', cursor: 'pointer' };
+const editBtn = { background: 'transparent', color: '#f5f5f5', padding: '6px 12px', borderRadius: '4px', marginRight: '10px', border: '1px solid rgba(255,255,255,0.25)', display: 'inline-block' };
+const deleteBtn = { background: '#f5f5f5', color: '#0a0a0a', padding: '6px 12px', borderRadius: '4px', border: 'none', cursor: 'pointer', fontWeight: '600' };
 
 export default AdminProducts;

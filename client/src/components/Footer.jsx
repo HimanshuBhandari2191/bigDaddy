@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <footer style={{
-      background:'#09090b',
+      background:'#0a0a0a',
       borderTop: '1px solid rgba(255,255,255,0.05)',
       padding:'40px 20px',
       marginTop:'auto'
@@ -20,17 +20,17 @@ const Footer = () => {
       gap:'20px'
     }}>
       <div>
-        <h3 style={{color:'#f97316', marginBottom:'10px'}}>Big Daddy Tattoos</h3>
-        <p style={{color:"#a1a1aa", fontSize:'0.9rem'}}>Premium E-commerce platform</p>
+        <h3 style={{color:'#e5e5e5', marginBottom:'10px'}}>Big Daddy Tattoos</h3>
+        <p style={{color:"#a3a3a3", fontSize:'0.9rem'}}>Premium E-commerce platform</p>
       </div>      
 
       <div style={{display:"flex", gap:"20px"}}> 
-        <Link to="/about" style={{color:"#a1a1aa", fontSize:"0.9rem"}}>About Us</Link>
-        <Link to="/return" style={{color:"#a1a1aa", fontSize:"0.9rem"}}>Return policy</Link>
-        <Link to="/disclaimer" style={{color:"#a1a1aa", fontSize:"0.9rem"}}>Disclaimer</Link>
+        <Link to="/about" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>About Us</Link>
+        <Link to="/return" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>Return policy</Link>
+        <Link to="/disclaimer" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>Disclaimer</Link>
       </div>
 
-      <div style={{color:"#a1a1aa", fontSize:"0.9rem"}}>
+      <div style={{color:"#a3a3a3", fontSize:"0.9rem"}}>
         &copy; {new Date().getFullYear()} Big Daddy Tattoos. All right reserved.
       </div>
     </div> 
