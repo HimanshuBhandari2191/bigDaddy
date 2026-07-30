@@ -1,33 +1,25 @@
-const nodemailer = require('nodemailer');
-const dns = require('dns');
+const { Resend } = require('resend');
 
-dns.setDefaultResultOrder('ipv4first');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendEmail = async ({ email, subject, message }) => {
   try {
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      family: 4, // 🔥 CRITICAL FIX
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    const mailOptions = {
-      from: `"Big Daddy Support" <${process.env.EMAIL_USER}>`,
+    const { data, error } = await resend.emails.send({
+      // Use your verified domain once set up, e.g. 'Big Daddy Support <support@yourdomain.com>'
+      // Until a domain is verified in Resend, this can only send to the email you signed up with.
+      from: process.env.RESEND_FROM_EMAIL || 'Big Daddy Support <onboarding@resend.dev>',
       to: email,
       subject,
       html: message,
-    };
+    });
 
-    const info = await transporter.sendMail(mailOptions);
+    if (error) {
+      console.error('EMAIL FAILED:', error);
+      throw new Error(error.message || 'Failed to send email');
+    }
 
-    console.log(`Email sent: ${info.response}`);
-
-    return info;
+    console.log(`Email sent: ${data.id}`);
+    return data;
 
   } catch (error) {
     console.error(`EMAIL FAILED:`, error);
