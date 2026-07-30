@@ -25,6 +25,8 @@ app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/payment', require('./routes/paymentRoutes'));
 app.use('/api/analytics', require('./routes/analyticsRoutes'));
+app.use('/api/custom-orders', require('./routes/customOrderRoutes'));
+app.use('/api/newsletter', require('./routes/subscriberRoutes'));
 
 // 🔥 Serve React build (ADD THIS)
 app.use(express.static(path.join(__dirname, "../client/build")));

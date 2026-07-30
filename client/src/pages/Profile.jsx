@@ -6,6 +6,7 @@ const Profile = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
+  const [customOrders, setCustomOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,7 +36,19 @@ const Profile = () => {
         setLoading(false);
       }
     };
+    const fetchMyCustomOrders = async () => {
+      try {
+        const res = await fetch('/api/custom-orders/mine', {
+          headers: { Authorization: `Bearer ${user.token}` }
+        });
+        const data = await res.json();
+        setCustomOrders(res.ok && Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     fetchMyOrders();
+    fetchMyCustomOrders();
   }, [user, navigate]);
 
   const handleLogout = () => {
@@ -90,6 +103,32 @@ const Profile = () => {
             </div>
           ))}
         </div>
+      )}
+
+      {customOrders.length > 0 && (
+        <>
+          <h3 style={{ color: '#e5e5e5', margin: '40px 0 20px 0', fontSize: '1.5rem' }}>Custom Tattoo Requests</h3>
+          <div style={{ display: 'grid', gap: '20px' }}>
+            {customOrders.map(order => (
+              <div key={order._id} style={{ background: '#0a0a0a', padding: '20px', borderRadius: '12px', border: '1px solid #27272a', display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center' }}>
+                <img src={order.referenceImageUrl} alt="Your design" style={{ width: '70px', height: '70px', objectFit: 'cover', borderRadius: '8px' }} />
+                <div style={{ flex: 1, minWidth: '180px' }}>
+                  <p style={{ color: '#a3a3a3', fontSize: '0.9rem' }}>Placement: <span style={{ color: '#fff' }}>{order.placement}</span> • Size: <span style={{ color: '#fff' }}>{order.size}</span></p>
+                  <p style={{ color: '#a3a3a3', fontSize: '0.9rem' }}>Requested: {new Date(order.createdAt).toLocaleDateString()}</p>
+                  {order.quotedPrice && <p style={{ color: '#f5f5f5', fontSize: '0.9rem', fontWeight: '600' }}>Quoted: ₹{order.quotedPrice}</p>}
+                </div>
+                <span style={{
+                  background: order.status === 'completed' ? '#f5f5f5' : 'transparent',
+                  color: order.status === 'completed' ? '#0a0a0a' : '#f5f5f5',
+                  border: order.status === 'completed' ? 'none' : '1px solid rgba(255,255,255,0.3)',
+                  padding: '8px 16px', borderRadius: '20px', fontWeight: 'bold', textTransform: 'capitalize'
+                }}>
+                  {order.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

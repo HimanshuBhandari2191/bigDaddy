@@ -40,7 +40,9 @@ const AdminProducts = () => {
             <tr style={rowStyle}>
               <th style={thStyle}>ID</th>
               <th style={thStyle}>NAME</th>
+              <th style={thStyle}>CATEGORY</th>
               <th style={thStyle}>PRICE</th>
+              <th style={thStyle}>BADGE</th>
               <th style={thStyle}>SIZE</th>
               <th style={thStyle}>STOCK</th>
               <th style={thStyle}>ACTIONS</th>
@@ -51,7 +53,14 @@ const AdminProducts = () => {
               <tr key={product._id} style={rowStyle}>
                 <td style={tdStyle}>{product._id.substring(0, 8)}...</td>
                 <td style={tdStyle}>{product.name}</td>
-                <td style={tdStyle}>₹{product.price.toFixed(2)}</td>
+                <td style={{...tdStyle, textTransform: 'capitalize'}}>{product.category || '-'}</td>
+                <td style={tdStyle}>
+                  ₹{product.price.toFixed(2)}
+                  {product.originalPrice > product.price && (
+                    <span style={{ color: '#6b6b6b', textDecoration: 'line-through', marginLeft: '8px', fontSize: '0.85rem' }}>₹{product.originalPrice}</span>
+                  )}
+                </td>
+                <td style={tdStyle}>{product.badge || '-'}</td>
                 <td style={tdStyle}>{product.size}</td>
                 <td style={tdStyle}>{product.stock}</td>
                 <td style={tdStyle}>

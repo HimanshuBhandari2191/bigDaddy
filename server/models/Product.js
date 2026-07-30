@@ -19,6 +19,20 @@ const productSchema = new mongoose.Schema({
     imageUrl: {
         type: String, required: true
     },
+    category: {
+        type: String,
+        enum: ['animal', 'spiritual', 'aquatic', 'nature', 'anime', 'tribal', 'armband', 'other'],
+        default: 'other'
+    },
+    originalPrice: {
+        // Optional "was" price. If set and greater than price, the product shows a strikethrough discount.
+        type: Number
+    },
+    badge: {
+        // Free-text promo badge, e.g. "NEW", "B1G1", "SALE"
+        type: String,
+        default: ''
+    },
     createdAt: {
         type: Date, default: Date.now
     },

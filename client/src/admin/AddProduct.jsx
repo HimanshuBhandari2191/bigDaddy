@@ -1,13 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { CATEGORIES } from '../constants/categories';
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
-    name: '', description: '', price: '', size: '', stock: ''
+    name: '', description: '', price: '', size: '', stock: '',
+    category: 'other', originalPrice: '', badge: ''
   });
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -28,6 +30,9 @@ const AddProduct = () => {
     data.append('price', formData.price);
     data.append('size', formData.size);
     data.append('stock', formData.stock);
+    data.append('category', formData.category);
+    data.append('originalPrice', formData.originalPrice);
+    data.append('badge', formData.badge);
     data.append('image', image);
 
     try {
@@ -80,6 +85,27 @@ const AddProduct = () => {
           onChange={(e) => setFormData({...formData, stock: e.target.value})} 
           style={inputStyle} 
         />
+
+        <select
+          value={formData.category}
+          onChange={(e) => setFormData({...formData, category: e.target.value})}
+          style={inputStyle}
+        >
+          {CATEGORIES.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
+        </select>
+
+        <div style={{ display: 'flex', gap: '15px' }}>
+          <input
+            type="number" placeholder="Original Price (optional, for discount)"
+            onChange={(e) => setFormData({...formData, originalPrice: e.target.value})}
+            style={{...inputStyle, flex: 1}}
+          />
+          <input
+            type="text" placeholder="Badge (e.g. NEW, B1G1, SALE)"
+            onChange={(e) => setFormData({...formData, badge: e.target.value})}
+            style={{...inputStyle, flex: 1}}
+          />
+        </div>
         
         <div style={{ padding: '15px', border: '1px dashed #e5e5e5', borderRadius: '8px' }}>
           <label style={{ display: 'block', marginBottom: '10px', color: '#a3a3a3' }}>Upload Product Image (Cloudinary)</label>

@@ -254,9 +254,25 @@ const ProductDetail = () => {
         {/* Right Side: Information Block */}
         <div className="detail-info">
           
+          {product.badge && (
+            <span style={{ display: 'inline-block', background: '#f5f5f5', color: '#0a0a0a', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.5px', padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase', marginBottom: '10px' }}>
+              {product.badge}
+            </span>
+          )}
+
           <h2 style={{ fontSize: '2.8rem', marginBottom: '10px' }}>{product.name}</h2>
 
-          <p className="detail-price" style={{ fontSize: '2.5rem', margin: '15px 0' }}>₹{product.price.toFixed(2)}</p>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '15px', flexWrap: 'wrap', margin: '15px 0' }}>
+            <p className="detail-price" style={{ fontSize: '2.5rem', margin: 0 }}>₹{product.price.toFixed(2)}</p>
+            {product.originalPrice > product.price && (
+              <>
+                <span style={{ fontSize: '1.3rem', color: '#6b6b6b', textDecoration: 'line-through' }}>₹{product.originalPrice.toFixed(2)}</span>
+                <span style={{ fontSize: '0.9rem', fontWeight: '700', color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', borderRadius: '4px' }}>
+                  {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% off
+                </span>
+              </>
+            )}
+          </div>
 
           {/* Description */}
           <div style={{ marginBottom: '25px' }}>

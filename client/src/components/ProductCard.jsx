@@ -28,12 +28,27 @@ import { Link } from 'react-router-dom';
 import '../styles/product.css';
 
 const ProductCard = ({ product }) => {
+  const hasDiscount = product.originalPrice && product.originalPrice > product.price;
+  const discountPercent = hasDiscount
+    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+    : 0;
+
   return (
     <div className="product-card">
+      {product.badge && <span className="product-badge">{product.badge}</span>}
       <img src={product.imageUrl} alt={product.name} className="product-image" />
       <div className="product-info">
         <h3>{product.name}</h3>
-        <p className="price">₹{product.price}</p>
+        <div className="price-row">
+          <p className="price">₹{product.price}</p>
+          {hasDiscount && (
+            <>
+              <span className="price-original">₹{product.originalPrice}</span>
+              <span className="price-discount">{discountPercent}% off</span>
+            </>
+          )}
+        </div>
+        {product.size && <p className="product-tag">{product.size}"</p>}
         <Link to={`/product/${product._id}`} className="btn">View Details</Link>
       </div>
     </div>

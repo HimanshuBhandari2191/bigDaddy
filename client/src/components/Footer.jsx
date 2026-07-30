@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Newsletter from './Newsletter'
 
 const Footer = () => {
   return (
@@ -9,6 +10,8 @@ const Footer = () => {
       padding:'40px 20px',
       marginTop:'auto'
     }}>
+
+    <Newsletter />
 
     <div style={{
       maxWidth:'1200px',
@@ -24,7 +27,9 @@ const Footer = () => {
         <p style={{color:"#a3a3a3", fontSize:'0.9rem'}}>Premium E-commerce platform</p>
       </div>      
 
-      <div style={{display:"flex", gap:"20px"}}> 
+      <div style={{display:"flex", gap:"20px", flexWrap: "wrap"}}> 
+        <Link to="/shop" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>Shop</Link>
+        <Link to="/custom-tattoo" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>Custom Tattoo</Link>
         <Link to="/about" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>About Us</Link>
         <Link to="/return" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>Return policy</Link>
         <Link to="/disclaimer" style={{color:"#a3a3a3", fontSize:"0.9rem"}}>Disclaimer</Link>

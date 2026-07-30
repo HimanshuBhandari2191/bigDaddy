@@ -21,6 +21,9 @@ import AdminOrders from "./admin/AdminOrders";
 import AdminUsers from "./admin/AdminUsers";
 import Shop from "./pages/Shop";
 import OrderDetail from "./pages/OrderDetail";
+import CustomTattoo from "./pages/CustomTattoo";
+import AdminCustomOrders from "./admin/AdminCustomOrders";
+import WhatsAppButton from "./components/WhatsAppButton";
 function App() {
   return (
     <Router>
@@ -45,8 +48,11 @@ function App() {
         <Route path="/admin/orders" element={<AdminOrders />} />
         <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/order/:id" element={<OrderDetail />} />
+        <Route path="/custom-tattoo" element={<CustomTattoo />} />
+        <Route path="/admin/custom-orders" element={<AdminCustomOrders />} />
       </Routes>
       <Footer />
+      <WhatsAppButton />
     </Router>
   );
 }
